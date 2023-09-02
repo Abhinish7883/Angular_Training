@@ -1,0 +1,20 @@
+<div class="">
+    <div *ngIf="!showError">
+        <ng-container *ngFor="let student of studentDetail">
+            <h3>Roll: {{student.roll}}</h3>
+            <h3>Name: {{student.name}}</h3>
+
+        </ng-container>
+    </div>
+    <div *ngIf="showError">
+        <h2> Data not found for this route  ......</h2>
+    </div>
+
+</div>
+
+
+
+
+
+
+
