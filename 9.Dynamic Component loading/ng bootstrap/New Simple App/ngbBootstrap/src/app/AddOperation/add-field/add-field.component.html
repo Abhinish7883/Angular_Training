@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Please Give Detail </h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModel.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+<div *ngIf="fieldType!='select form Control'">
+  <form [formGroup]="addFormGroup">
+      <div class="row">
+        <div>
+          <label class="form-label mt-2">label<sup style="color: red;">*</sup></label>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" formControlName="label" minlength="3">
+        </div>
+        <div class="col"></div>
+      </div>
+      <div *ngIf="fieldType=='dropdown'||fieldType=='boolean'">
+        <div formArrayName="Options">
+          <label class="form-label"> Options <sup style="color: red;">*</sup></label>
+          <div class="row d-flex justify-content-center mt-2" *ngFor="let option of getOptions().controls; let i= index">
+            <div class="col">
+              <input type="text"  class=" form-control" [formControlName]="i" minlength="3">
+            </div>
+            <div class="col">
+              <button type="button" class="btn btn-primary" (click)="addOption()">+</button>
+              <button *ngIf="i>0" type="button" class="btn btn-danger ms-1" (click)="deleteOption(i)">-</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark" [disabled]="addFormGroup.invalid" (click)="activeModel.close(addFormGroup)" >Save</button>
+      </div>
+  </form>
+</div>
