@@ -1,0 +1,10 @@
+<h1>Parent Component</h1>
+<div class="d-flex">
+    <ng-container *ngFor='let i of storeInputBoxValue ;let j="index"'>
+        <ng-container *ngIf="i.trimStart()?.length">
+            <span *ngIf="j!=0">,</span><div [innerHTML]="i"></div>
+        </ng-container>
+       
+    </ng-container>
+</div>
+<app-child (inputValueEvent)="inputvvv($event)" (removeInputValue)="revInput($event)"></app-child>

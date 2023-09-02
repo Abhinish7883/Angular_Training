@@ -1,0 +1,19 @@
+<div class="container border">
+    <h1>Child Component</h1>
+    <div class=" d-flex border row">
+        <div class="col">
+                <div  *ngFor="let i of storeItem; let j =index" class="d-flex">
+                    <input class='form-control mb-2'type="text" name="ab{{j}}" [(ngModel)] = "i.value">
+                    <button *ngIf="j!=0" class="btn btn-danger"  (click)="remove(j,i.value)" #a >Remove</button>
+                     
+                </div>       
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" (click)="createBox()">Add Item</button>
+        </div>
+    </div>
+    <button class="btn btn-success"(click)="submit()">Submit</button>
+</div>
+
+ 
+

@@ -1,0 +1,16 @@
+<div class="container border">
+    <h1>Child Component</h1>
+    <div class=" d-flex border row">
+        <div class="col">
+            <div  *ngFor="let inputBoxValue of inputBoxContainer; let indexOfInputBoxValue =index" class="d-flex">
+                <input class='form-control mb-2'type="text" name="ab" [(ngModel)]="inputBoxValue.value">
+                <button *ngIf="inputBoxContainer.length > 1" class="btn btn-danger"  (click)="remove(indexOfInputBoxValue)">Remove</button>
+                <button *ngIf="inputBoxContainer.length === indexOfInputBoxValue + 1"class="btn btn-primary" (click)="createBox()">Add Item</button>
+            </div>       
+        </div>  
+    </div>
+    <button class="btn btn-success"(click)="submit()">Submit</button>
+</div>
+
+
+ 
