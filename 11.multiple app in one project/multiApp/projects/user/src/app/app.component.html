@@ -1,0 +1,24 @@
+<div>
+  <div class="row">
+    <div class="container mt-5 border col">
+      <div class="container">
+        <h2>Dynamic Component Loading</h2>
+      </div>
+    
+      <div class="fload-right">
+      </div>
+      <div class="container border">
+        <form [formGroup]="reactiveFormContainer" (ngSubmit)="submitForm()">
+          <ng-template #dynamicComp></ng-template>
+          <!--form data-->
+          <div class='d-flex'>
+            <button class="btn btn-primary" type="submit">submit</button>
+            <button class="btn btn-primary ms-2" type="button"(click)="redirect()">See data </button>
+          </div>
+        </form> 
+      </div>
+    </div>
+  </div>
+  
+</div>
+<router-outlet></router-outlet> 

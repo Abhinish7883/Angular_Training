@@ -1,0 +1,7 @@
+<h1>Parent Component</h1>
+<div class="d-flex">
+        <input type="text"[disabled]="addRemovBbtntagle" [(ngModel)]="inputValue" #inputBtn>
+        <button *ngIf="addRemovBbtntagle==false" (click)="takeInputFromTextBox()"  class="btn btn-success">Add</button>
+        <button *ngIf="addRemovBbtntagle==true" (click)="enableInputTextBox()" class="btn btn-secondary" >Edit</button>    
+</div>
+<app-child [takeInputFromParent]="inputValues" (inputValueEvent)="takeInputValueFromChild($event)" ></app-child>

@@ -1,0 +1,10 @@
+<div>
+    <h1> Task 1 </h1>
+    <h2> Default Transformation : {{todayDate | customDate}}</h2>
+    <h2> Transformation with Format : {{inputDate.value | customDate:formate.value}}</h2>
+    <h1>Task - 2</h1>
+    <h2> Calculate Difference : {{inputDate.value| dateDifference}}</h2>
+    Select Date : <input type="date" #inputDate>
+    Enter Format : <input type="text" #formate>
+    <button class="btn btn-primary" (click)="inputDateFunc(inputDate.value)">click</button> 
+</div>

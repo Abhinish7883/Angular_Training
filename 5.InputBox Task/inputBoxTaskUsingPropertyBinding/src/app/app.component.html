@@ -1,0 +1,25 @@
+<h1>task-3</h1>
+<ng-container >
+  {{numberArray | slice:1:2}}
+  {{numberArray | slice:3}}
+</ng-container> 
+ 
+<br>
+<h1>task-4</h1>
+ <ng-container *ngFor="let object of objectArray">
+  {{object |json}}
+ </ng-container>
+
+ <h1> task - 5</h1>
+
+ {{objectArraylength | async}}
+
+  <ng-container *ngFor="let object of objectArray">
+    <li>{{object.id}}</li>
+  </ng-container>
+
+  <div>
+
+   okk:  {{storeApiResponce | async | json}}
+
+Q1Q  </div>

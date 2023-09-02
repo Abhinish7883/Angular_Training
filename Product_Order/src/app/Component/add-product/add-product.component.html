@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Please Enter Value</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModel.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <form #addForm = 'ngForm'>
+        <div class="m-1">
+            <div class="m-1">
+                <label class="label-control" for="name">Product name</label>
+            </div>
+            <div>
+                <input id="name" type="text" class="form-control" name="name" ngModel minlength="3" required>
+            </div>
+        </div>
+        <div *ngIf="isOrderProduct">
+            <div>
+                <label class="label-control" for="quantity">Quantity</label>
+            </div>
+            <div>
+                <input id = "quantity"type="number" class="form-control" name="quantity" ngModel required>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" [disabled]="addForm.invalid " (click)="activeModel.close(addForm.value)">Save</button>
+</div>
+
+ 

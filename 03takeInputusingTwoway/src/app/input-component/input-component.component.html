@@ -1,0 +1,25 @@
+<div  class="container" >
+    <div class="task-1">
+        <h1>[task-1 : use of ngswitch ]</h1>
+        <input type="text" (keyup)="func(a.value)" #a>{{inputBoxValue}}
+        <div [ngSwitch]=true >
+            <h4 *ngSwitchCase="(0<inputBoxValue&&inputBoxValue<=5)?true:false" >BAD</h4>
+            <h4 *ngSwitchCase="(5<inputBoxValue&&inputBoxValue<=10)?true:false">POOR</h4>
+            <h4 *ngSwitchCase="(10<inputBoxValue &&inputBoxValue<=15)?true:false" >MODERATE</h4>
+            <h4 *ngSwitchCase="(15<inputBoxValue)? true:false" >STRONG</h4>
+            <h4 *ngSwitchDefault>Please enter string..</h4>        
+    </div>
+    </div>
+    <div class="task-2">
+        <h1>[task-1 : search Name ]</h1>
+        <input type="text" (keyup)="takeInput(in.value)"  #in>{{inputBoxValue2}}
+        <ng-container *ngIf="inputBoxValue2.length>=2">
+            <div *ngFor="let i of listOfname" >
+                <ng-container  *ngIf="(i.match(pattern))" >
+                    {{i}}
+                </ng-container>
+            </div>
+        </ng-container>
+    </div>
+    
+</div>

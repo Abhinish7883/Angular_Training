@@ -1,0 +1,86 @@
+<div class="container border mt-1">
+    <div>
+        <h1> Template Driven Forms Practice</h1>
+    </div>
+    <div class="subcontainer border ">
+        <form (ngSubmit)="formSummit(formPractice)" #formPractice="ngForm">
+
+            <!--name of group: personalDetail -->
+            <div ngModelGroup="nameDetail" #name="ngModelGroup" class="container border">
+                <div class="forms-group">
+                    First name:<input class="form-control" type="text" ngModel name="fname" #fname="ngModel" required>
+                </div>
+
+                <div class="forms-group">
+                    last name:<input class="form-control" type="text" ngModel name="lname" #lname="ngModel" required>
+                </div>
+                <p *ngIf="name.invalid&&name.touched"> name must be required</p>
+
+                <button type="button" (click)="editnameDetail(formPractice)" class="btn btn-primary mt-1 mb-1">Edit(use of patchValue)</button>
+
+            </div>
+            <!--userName Email password-->
+            <div class="form-group">
+                Username: <input class="form-control" type="text" ngModel name="username" #username="ngModel" required>
+                <p *ngIf="username.invalid&&username.touched"> username must be required</p>
+            </div>
+            <div class="form-group">
+                Email: <input class="form-control" type="email" ngModel name="email" #email="ngModel" email required="">
+                <p *ngIf="email.invalid&&email.touched"> username must be required</p>
+            </div>
+            <div class="form-group">
+                Password: <input class="form-control" type="password" ngModel name="password" #password="ngModel"
+                    required>
+                <p *ngIf="password.invalid&&password.touched"> password must be required</p>
+            </div>
+            <!--secssion okkk-->
+            <div class="d-flex justify-content-around mt-1 mb-1">
+                <!--dob-->
+                <div class="form-group">
+                    DOB: <input type="date" ngModel name="dob" #DOB="ngModel" required>
+                    <p *ngIf="DOB.invalid&&DOB.touched"> DOB must be required</p>
+                </div>
+                <!--Age-->
+                <div class="form-group">
+                    Age: <input type="number" ngModel name="age" min="18" max="28" #age="ngModel" required>
+                    <p *ngIf="age.invalid&&age.touched"> age must be greater than equal to 18 </p>
+                </div>
+                <!--Gender-->
+                <div>
+                    <label>Gender:</label>
+                    <ng-container *ngFor="let gender of genderDetail">
+                        <input type="radio" id={{gender.id}} name='gender' value={{gender.value}}
+                            ngModel={{defaultValue}}>
+                        <label for={{gender.id}}>{{gender.value}}</label>
+                    </ng-container>
+                </div>
+                <!--Country-->
+                <div>
+                    <label for="country">Country</label>
+                    <select name="countryDetail" id="country" [(ngModel)]="defaultCountry">
+                        <ng-container *ngFor="let country of countryDetail ">
+                            <option value="India">{{country}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+            </div>
+            <!--Hobbies-->
+            <div ngModelGroup="HobbiesDetail" #name="ngModelGroup" class="d-flex justify">
+                <div>
+                    Hobbies in Sports :
+                </div>
+                 
+                <div *ngFor="let sport of hobbiesDetail">
+                    <input id ={{sport.id}} type="checkbox" ngModel name={{sport.value}}>
+                    <label for= {{sport.value}}>{{sport.value}}</label> 
+                </div>
+            </div>
+            <!--submit Form -->
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary" [disabled]=" formPractice.invalid"type="submit">submit</button>
+                <button type="button" (click)="editForm(formPractice)" class="btn btn-primary">Edit(use of setValue)</button>
+            </div>
+        </form>
+    </div>
+    {{formPractice.value| json}}
+</div>
