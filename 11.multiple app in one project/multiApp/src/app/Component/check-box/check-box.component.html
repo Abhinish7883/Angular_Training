@@ -1,0 +1,20 @@
+<div class="container m-2 border">
+    <div class="row">
+        <h5>{{checkBoxProperty.fieldName}}</h5>
+    </div>
+    <div class="d-flex row">
+        <label class="" for="selectBox">{{checkBoxProperty.label}}</label>
+        <div class="col">
+                <ng-container *ngFor="let option of checkBoxProperty.options">
+                    <input
+                    type="checkbox"
+                    [id]="option"
+                    [formControl]="checkBoxFormControl"
+                    [name]="checkBoxProperty.fieldName"
+                    [value]="option" 
+                    [checked]="checkBoxProperty.defaultValue">
+                <label class="m-2" [for]="option">{{option}}</label>
+                </ng-container>  
+        </div>
+    </div>
+</div>
