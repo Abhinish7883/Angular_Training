@@ -1,0 +1,11 @@
+<div class="container m-2 border">
+    <div class="d-flex row" >
+        <label class="label-control">{{fieldmeta.displayName}}</label>
+        <div class="col">
+            <input type="checkbox" [formControl]="fieldControl" (blur)="validateForm()">
+        </div>
+        <div>
+            <p class="text-danger" *ngIf="isShowError">{{showError}}</p>
+        </div>
+    </div>
+</div>

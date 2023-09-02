@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="container">
+        form Creation Task
+    </div>
+    <div class="container d-flex">
+        <div>
+            <button class="btn btn-primary m-2" (click)="open('text')">Add Input</button>
+        </div>
+        <div>
+            <button class="btn btn-primary m-2" (click)="open('textarea')">Add Textarea</button>
+        </div>
+        <div>
+            <button class="btn btn-primary m-2" (click)="open('select')">Add Select</button>
+        </div>
+    </div>
+    <div class="container border">
+        <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+            <h3>Dynamic form </h3>
+            <app-form-creator [fields]="fields" [myForm]="myForm"></app-form-creator>
+            <!--form data-->
+            <button class="btn btn-primary" type="submit">submit</button>
+        </form>
+    </div>
+</div>
+<!-- [disabled]="!myForm.valid" -->
+
+<ng-template #addFieldPopUp let-modal>
+    <div>
+        <div class="modal-header">
+            <h4 class="modal-title">Please Enter Field Value </h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click');"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="popUpForm">
+                <app-form-creator [fields]="addNewField" [myForm]="popUpForm"></app-form-creator>
+                <!--form data-->
+                <div *ngIf="isSelect">
+                    <div formArrayName="options">
+                        <label class="form-label"> Options <sup style="color: red;">*</sup></label>
+                        <div class="row d-flex justify-content-center mt-2"
+                            *ngFor="let option of getOptions().controls; let i= index">
+                            <div class="col">
+                                <div class="d-flex" [formGroupName]="i">
+                                    <div>
+                                        labal : <input type="text" formControlName="label" class="form-control">
+                                    </div>
+                                    <div>
+                                        value : <input type="text" formControlName="value" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <button *ngIf="getOptions().controls.length==i+1" type="button" class="btn btn-primary"
+                                    (click)="addOption()">+</button>
+                                <button type="button" class="btn btn-danger ms-1" (click)="deleteOption(i)">-</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" (click)="modal.close(popUpForm)">Save</button>
+
+        </div>
+    </div>
+</ng-template>
