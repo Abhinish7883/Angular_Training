@@ -1,0 +1,48 @@
+<div class="container border my-4">
+    <div class="text-center my-4">
+        <h3>Sign Up Form</h3>
+    </div>
+    <div class="mx-4">
+            <form class="m-4" [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm)">
+            <div class="form-group m-4">
+                <label for="userName" class="form-label m-2"><sup class="text-danger">*</sup> Name </label>
+                <input 
+                type="text" 
+                id="userName"
+                [ngClass]="{'is-invalid':signUpForm.controls['username'].invalid&&signUpForm.controls['username'].touched}"
+                class="form-control"
+                formControlName="username"
+                minlength="6"
+                 maxlength="16" required>
+                <p class="text-danger" 
+                *ngIf="signUpForm.controls['username'].invalid&&signUpForm.controls['username'].touched&&signUpForm.controls['username'].pristine" >This is required field.</p>
+                <p class="text-danger" 
+                *ngIf="signUpForm.controls['username'].invalid&&signUpForm.controls['username'].touched && signUpForm.controls['username'].dirty" >Username  size must be greater than 6. </p>
+            </div>
+            <div class="form-group m-4">
+                <label for="email" class="form-label"><sup class="text-danger">*</sup> Email</label>
+                <input type="email" id="email" [ngClass]="{'is-invalid':signUpForm.controls['email'].invalid&&signUpForm.controls['email'].touched}"class="form-control" formControlName="email" email required>
+                <p class="text-danger" 
+                *ngIf="signUpForm.controls['email'].invalid&&signUpForm.controls['email'].touched&&signUpForm.controls['email'].pristine" >This is required field.</p>
+                <p class="text-danger" 
+                *ngIf="signUpForm.controls['email'].invalid&& signUpForm.controls['email'].dirty" > invalid Email </p>
+            </div>
+            <div class="form-group m-4">
+                <label for="password" class="form-label"><sup class="text-danger">*</sup> Password</label>
+                    <input type="password" id="password"[class]="'form-control'  "formControlName="password" minlength="6" maxlength="16" required>
+                    <p class="text-danger" 
+                    *ngIf="signUpForm.controls['password'].invalid&&signUpForm.controls['password'].touched&&signUpForm.controls['password'].pristine" >This is required field.</p>
+                    <p class="text-danger" 
+                    *ngIf="signUpForm.controls['password'].invalid&&signUpForm.controls['password'].touched && signUpForm.controls['password'].dirty" > password size must be Greater then 6 </p>
+            </div>
+            <div class="form-group m-4">
+                <input type="checkbox" id="checkbox"class="form-check-control"formControlName="isAdmin" value="false">
+                <label for="checkbox" class="form-check-label ms-2">is Admin</label>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" [disabled]="signUpForm.invalid">Sign Up</button>
+                <button routerLink="/login" class="btn btn-primary ms-2">Goto login Page</button>
+            </div>
+        </form>
+    </div>
+</div>
