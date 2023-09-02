@@ -1,0 +1,22 @@
+<header>
+    <div class="header">
+        <h2 class="h2-header">Header  <span [innerHTML]="color" [ngStyle]="{'background-color': color}" ></span></h2>
+    </div>
+</header>
+<main >
+    <nav>
+        <div class="nav">
+            <h2  class="h2-nav">Nav</h2>
+        </div>
+    </nav>
+    <div class = 'btn-container'>
+        <app-button-color (colorNameEvent)="colorAdd($event)"></app-button-color>
+    </div>
+</main>
+
+<footer>
+    <div class="footer">
+        <h2 class="h2-header">Footer</h2>
+    </div>
+</footer>
+

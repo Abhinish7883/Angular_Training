@@ -1,0 +1,39 @@
+.button-red{
+    background-color: red;
+    width: 175px;
+    border-radius: 5px;
+    height: 35px;
+    color: aliceblue;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+.button-blue{
+    background-color: blue;
+    width: 175px;
+    border-radius: 5px;
+    height: 35px;
+    color: aliceblue;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right:15px;
+}
+.button-green{
+    background-color: green;
+    width: 175px;
+    border-radius: 5px;
+    height: 35px;
+    color: aliceblue;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+}
+ 

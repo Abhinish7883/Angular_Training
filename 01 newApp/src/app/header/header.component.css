@@ -1,0 +1,37 @@
+.header{
+    background-color: aqua;
+    
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+.h2-header{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+main{
+    display: flex;
+    justify-items: center;
+}
+.nav{
+    background-color: olive;
+    color: aliceblue;
+    width: 300px;
+    height: 800px;
+    margin: 10px;
+}
+.h2-nav{
+    padding-top: 300px;
+    padding-left: 130px;
+}
+.footer{
+    background-color: black;
+    color: aliceblue;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+.btn-container{
+    margin-top: 400px;
+    margin-left: 400px;
+}
