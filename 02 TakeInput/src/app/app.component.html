@@ -1,0 +1,4 @@
+<div class="bg-primary">
+  Child value : <span [innerHTML]="boxValue"></span>
+</div>
+<app-child-input [inputValue]='boxValue' (inputValueEvent)="inputBoxValue($event)"></app-child-input>
