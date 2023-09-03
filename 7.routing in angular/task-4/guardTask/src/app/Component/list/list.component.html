@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="d-flex">
+        <nav class="container navbar navbar-light bg-primary rounded mt-5 d-flex justify-content-center">
+            <a class="navbar-brand text-light ">
+                TrackBy List
+            </a>
+        </nav>
+        <div class="mt-5 ms-1">
+            <button class="btn btn-primary" routerLink="/dashboard">Got to Dashboard</button>
+        </div>
+    </div>
+    
+    <div class="container mt-5 border">
+        <div class="row border">
+            <div class="col border">
+                <h3>user ID</h3>
+            </div>
+            <div class="col border">
+                <h3>TrackBy</h3>
+            </div>
+        </div>
+        <div class="row border" *ngFor="let trackBy of usersTrackByDetail">
+            <div class="col border">
+                <h5>{{trackBy.email}}</h5>
+            </div>
+            <div class="col border">
+                <h5>{{trackBy.trackBy}}</h5>
+            </div>
+        </div>
+
+        
+
+        
+
+    </div>
+</div>
+

@@ -1,0 +1,30 @@
+<div class="container border my-4">
+    <div class="text-center my-4">
+        <h3>Login Form</h3>
+    </div>
+    <div class="mx-4">
+            <form class="m-4" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+            <div class="form-group m-4">
+                <label for="email" class="form-label"><sup class="text-danger">*</sup>Email</label>
+                <input type="email" id="email"class="form-control" formControlName="email"  required email>
+                <p class="text-danger" 
+                    *ngIf="loginForm.controls['email'].invalid&&loginForm.controls['email'].touched&&loginForm.controls['email'].pristine" >This is required field.</p>
+                    <p class="text-danger" 
+                    *ngIf="loginForm.controls['email'].invalid&&loginForm.controls['email'].touched && loginForm.controls['email'].dirty" > invalid email </p>
+            </div>
+            <div class="form-group m-4">
+                <label for="password" class="form-label"><sup class="text-danger">*</sup>Password</label>
+                <input type="password" id="password"class="form-control"formControlName="password" minlength="6" maxlenght="16" required>
+                <p class="text-danger" 
+                    *ngIf="loginForm.controls['password'].invalid&&loginForm.controls['password'].touched&&loginForm.controls['password'].pristine" >This is required field.</p>
+                    <p class="text-danger" 
+                    *ngIf="loginForm.controls['password'].invalid&&loginForm.controls['password'].touched && loginForm.controls['password'].dirty" > password size must be Greater then 6 </p>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+                <button routerLink="/signUp" class="btn btn-primary ms-2">Goto sign Up Page</button>
+            </div>
+        </form>
+    </div>
+</div>

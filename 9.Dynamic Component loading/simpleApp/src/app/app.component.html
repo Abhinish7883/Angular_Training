@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="container mt-5 border col">
+    <div class="container">
+      <h2>Dynamic Component Loading</h2>
+    </div>
+  
+    <div class="fload-right">
+    </div>
+    <div class="container border">
+      <form [formGroup]="reactiveFormContainer" (ngSubmit)="submitForm()">
+        <ng-template #dynamicComp></ng-template>
+        <!--form data-->
+        <button class="btn btn-primary" type="submit">submit</button>
+      </form> 
+    </div>
+  </div>
+
+  <!-------form Control work here   -->
+
+  <div class="container mt-5 border col">
+    <div>
+     <h3>form control</h3> 
+    </div>
+    <div>
+      <!--  -->
+      <select [(ngModel)]="selectedOption" (change)="AddOptionControl()">
+        <ng-container  *ngFor="let option of [ 'select form Control','text','number','boolean','dropdown']" >
+          <option  [value]="option">{{option}}</option>
+        </ng-container>
+      </select>
+    </div>
+
+    <div *ngIf="selectedOption!='select form Control'">
+      <form [formGroup]="addFormGroup" (ngSubmit)="getAddFormValue(addFormGroup)">
+          <div class="row">
+            <div>
+              <label class="form-label mt-2">label<sup style="color: red;">*</sup></label>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" formControlName="label" minlength="3">
+            </div>
+            <div class="col"></div>
+          </div>
+          <div *ngIf="selectedOption=='dropdown'||selectedOption=='boolean'">
+            <div formArrayName="Options">
+              <label class="form-label"> Options <sup style="color: red;">*</sup></label>
+              <div class="row d-flex justify-content-center mt-2" *ngFor="let option of getOptions().controls; let i= index">
+                <div class="col">
+                  <input type="text"  class=" form-control" [formControlName]="i" minlength="3">
+                </div>
+                <div class="col">
+                  <button type="button" class="btn btn-primary" (click)="addOption()">+</button>
+                  <button *ngIf="i>0" type="button" class="btn btn-danger ms-1" (click)="deleteOption(i)">-</button> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="m-2">
+            <!--  -->
+            <button type="submit" class="btn btn-primary" [disabled]="addFormGroup.invalid">save</button>
+          </div>
+      </form>
+    </div>
+</div>
+
+
+
+
+ 

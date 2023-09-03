@@ -1,0 +1,21 @@
+<div class="container d-flex mt-4">
+    <div>
+        <div>
+            <button class="btn btn-primary mt-1" [routerLink]="['A']" >class A</button>
+        </div>
+        
+        <div>
+            <button class="btn btn-primary mt-1" [routerLink]="['B']">class B</button>
+        </div>
+        <div>
+            <button class="btn btn-primary mt-1" [routerLink]="['C']">class C</button>
+        </div>
+        <div>
+            <button class="btn btn-primary mt-1" [routerLink]="['D']">class D</button>
+        </div>
+    </div>
+    
+    <div style="margin-left: 100px;">
+        <router-outlet></router-outlet>
+    </div>
+</div>

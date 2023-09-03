@@ -1,0 +1,45 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <h3>Dashboard</h3>
+        </ul>
+          
+        <div class="d-flex align-items-center">
+           <h4 class="m-2 "> {{userName}} <small> ({{userType}}) </small></h4>
+            <button (click)="logout()" type="button" class="btn btn-primary">
+            logout
+          </button>
+        </div>
+      </div>
+    </div>
+</nav>
+  <!-- Navbar -->
+<!--prodect Detail -->
+  <div class="container d-flex mt-4 row ">
+    <div class="col">
+        <div>
+            <button class="btn btn-primary mt-1" (click)="changeRoute('A')">class A</button>
+        </div>
+        <div>
+            <button class="btn btn-primary mt-1" (click)="changeRoute('B')">class B</button>
+        </div>
+        <div>
+            <button class="btn btn-primary mt-1" (click)="changeRoute('C')">class C</button>
+        </div>
+        <div>
+            <button class="btn btn-primary mt-1" (click)="changeRoute('D')">class D</button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between col">
+        <div style="margin-left: 100px;">
+          <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="col">
+      <div class="float-right" *ngIf="trackByList">
+         <button class="btn btn-primary" routerLink="/list"> TrackBy list </button>
+      </div>
+    </div>
+</div>

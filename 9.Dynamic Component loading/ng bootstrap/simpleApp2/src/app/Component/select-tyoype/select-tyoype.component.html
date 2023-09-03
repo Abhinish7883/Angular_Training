@@ -1,0 +1,17 @@
+<div>
+	<div class="modal-header" >
+		<h4 class="modal-title" id="modal-basic-title">Please Select field </h4>
+		<button type="button"  class="btn-close" aria-label="Close" (click)="activeModel.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+      <select [(ngModel)]="selectedOption1" >
+        <ng-container  *ngFor="let option of [ 'select form Control','text','number','boolean','dropdown']" >
+          <option  [value]="option">{{option}}</option>
+        </ng-container>
+      </select>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" [disabled]="selectedOption1=='select form Control'" (click)="open()" (click)="AddOptionControl()"  (click)="activeModel.close('Save click')">Save</button>
+	</div>
+</div>
+	

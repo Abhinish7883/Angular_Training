@@ -1,0 +1,23 @@
+<div class="" style="display: flex;">
+<div>
+  <div>
+    <a routerLink="A">Class A</a>
+  </div>
+  <div>
+    <a routerLink="B">Class B</a>
+  </div>
+  <div>
+    <a routerLink="C">Class C</a>
+  </div>
+  <div>
+    <a [routerLink]="['D',2]">Class D (ROUTING Params Practice)</a>
+  </div>
+</div>
+<div>
+  <div style="margin-left: 100px;">
+    <h1>
+      <router-outlet></router-outlet>
+    </h1>    
+  </div>
+</div>
+</div>
